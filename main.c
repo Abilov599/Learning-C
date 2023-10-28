@@ -83,24 +83,28 @@
 
 //! task 5
 
+#define N 100
+int lengthof(char a[]);
+
 int main()
 {
-  char name[50];
-  char surname[50];
-  char fullName[100]; // Variable to store the full name
-
-  printf("Enter your name: ");
-  scanf("%s", name);
-
-  printf("Enter your surname: ");
-  scanf("%s", surname);
-
+  char fullName[N]; // Variable to store the full name
   // Concatenate the name and surname with a space in between
-  sprintf(fullName, "%s %s", name, surname);
-
+  fgets(fullName, N, stdin);
+  int length = lengthof(fullName) - 1;
+  fullName[length] = '\0';
   printf("Full name: %s\n", fullName);
-
   return 0;
+}
+int lengthof(char fullName[])
+{
+  int length = 0;
+  while (fullName[length] != '\0')
+  {
+    length++;
+  }
+
+  return length;
 }
 
 //! task 6
